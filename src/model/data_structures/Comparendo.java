@@ -4,9 +4,7 @@ import java.util.Date;
 
 public class Comparendo  {
 
-	private Comparendo siguiente;
-
-	private Comparendo anterior;
+	
 
 	private int idComparendo;
 
@@ -32,27 +30,12 @@ public class Comparendo  {
 		infraccion=nInfraccion;
 		DescripcionInfraccion=nDescripcionInfraccion;
 		localidad=nLocalidad;
-		siguiente=null;
-		anterior=null;
-	}
-
-
-	public void CambiarSiguiente(Comparendo Sact) {
-		// TODO Auto-generated method stub
-		siguiente= Sact;
 
 	}
 
-	public void CambiarAnterior(Comparendo Aact) {
-		// TODO Auto-generated method stub
-		siguiente= Aact;
 
-	}
-	public Comparendo darSiguiente( )
-	{
-		return siguiente;
-		
-	}
+
+
 	
 	public int darIdComparendo(){
 		return idComparendo;
