@@ -7,11 +7,11 @@ public class Pila <K> implements Ipila<K>{
 	private int tamano;
 	
 	
-	public  Pila() {
+	public  Pila(int ptamano) {
 		// TODO Auto-generated constructor stub
 		fondo=null;
 		top=null;
-		tamano=0;
+		tamano=ptamano;
 	}
 	
 	@Override
@@ -25,6 +25,7 @@ public class Pila <K> implements Ipila<K>{
 			top=nuevoNodo;
 		}
 		nuevoNodo.setSiguiente(top);
+		top.setAnterior(nuevoNodo);
 		top=nuevoNodo;
 		
 		
@@ -61,15 +62,12 @@ public class Pila <K> implements Ipila<K>{
 	}
 
 	@Override
-	public int contarElementos() {
+	public int darTamano() {
 		// TODO Auto-generated method stub
 		
-		Nodo act=top;
-		while (act!=null) {
-			tamano++;
-			act=act.darSiguente();
+		
 			
-		}
+		
 		return tamano;
 	}
 
@@ -102,8 +100,16 @@ public class Pila <K> implements Ipila<K>{
 	}
 
 	@Override
-	public void sacar(K eliminar) {
+	public K sacar() {
 		// TODO Auto-generated method stub
+		Nodo sacar= top;
+		top=sacar.darAnterior();
+		top.setSiguiente(null);
+		K x = (K) sacar.darComparendo();
+		return x;
+		
+		
+		
 		
 	}
 

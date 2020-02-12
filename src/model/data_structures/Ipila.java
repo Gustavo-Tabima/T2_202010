@@ -4,13 +4,13 @@ public interface Ipila<K> {
 
 	public void push(K pnuevo);
 	
-	public void sacar(K eliminar);
+	public K sacar();
 
 	public K darTop();
 
 	public boolean estaVacio();
 
-	public int contarElementos();
+	public int darTamano();
 
 	public K buscarElemento(K buscado);
 

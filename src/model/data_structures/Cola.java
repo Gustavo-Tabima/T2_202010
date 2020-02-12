@@ -7,11 +7,11 @@ public class Cola <K> implements Icola{
 	private Nodo termino;
 	private int tamano;
 
-	public Cola()
+	public Cola(int ptamano)
 	{
 		inicio=null;
 		termino=null;
-		tamano=0;
+		tamano=ptamano;
 	}
 
 
@@ -28,6 +28,7 @@ public class Cola <K> implements Icola{
 			termino=nuevoNodo;
 		}
 		termino.setSiguiente(nuevoNodo);
+		nuevoNodo.setAnterior(termino);
 		termino=termino.darSiguente();
 	}
 
@@ -56,17 +57,8 @@ public class Cola <K> implements Icola{
 	}
 
 	@Override
-	public int contarElementos() {
-		int contador=0;
-		Nodo c=inicio;
-		while(c!=null)
-		{
-			contador++;
-			c=c.darSiguente();
-		}
-		System.out.println("Numero de datos en la cola: "+contador);
-
-		return contador;
+	public int darTamano() {
+		return tamano;
 	}
 
 
@@ -103,7 +95,7 @@ public class Cola <K> implements Icola{
 
 
 	@Override
-	public K sacar(Object eliminar) {
+	public K sacar() {
 
 		if (estaVacio()==false) {
 			Nodo out = inicio;
@@ -111,12 +103,13 @@ public class Cola <K> implements Icola{
 			Nodo queue=inicio.darSiguente();
 			inicio=queue;
 			out.setSiguiente(null);
+			inicio.setAnterior(null);
 
 			return (K) out.darComparendo();
 
 		}
 
-
+		System.out.println("No se pudo eliminar");
 		return null;
 
 	}

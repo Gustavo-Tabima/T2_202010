@@ -8,10 +8,10 @@ public interface Icola <K> {
 	
 	public boolean estaVacio();
 	
-	public int contarElementos();
+	public int darTamano();
 	
 	public K buscarElemento(K buscado);
 		
-	public K sacar(K eliminar);
+	public K sacar();
 	
 }
