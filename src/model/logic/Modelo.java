@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 
 import model.logic.Comparendo;
 import model.data_structures.Geo;
+import model.data_structures.Pila;
 
 /**
  * Definicion del modelo del mundo
@@ -49,6 +50,7 @@ public class Modelo {
 	public Modelo()
 	{
 		datos = new ArregloDinamico(7);
+		datosConPila = new Pila<Comparendo>();
 	}
 
 	/**
@@ -247,5 +249,26 @@ public class Modelo {
 		}
 		return datosCola;	
 
+	}
+	
+	private String darRepeticiones() {
+		String tipoRepetido = "";
+		int contador = 0;
+		if(!datosConPila.estaVacio()) {
+			for(int x = 1 ; x< datosConPila.darTamano();x++) {
+				if(contador == 0) {
+					Comparendo cima = (Comparendo) datosConPila.darTop();
+					tipoRepetido = cima.darInfraccion();
+					datosConPila.sacar();
+					contador++;
+				}
+				Comparendo actual = (Comparendo) datosConPila.darTop();
+				if(tipoRepetido.equals(actual.darInfraccion())) {
+					contador++;
+				}
+				
+			}
+		}
+		return tipoRepetido;
 	}
 }

@@ -99,7 +99,7 @@ public class Controller {
 				
 				case 8:
 					view.printMessage("--------- \nReporte de ultimos N Comparendos: ");
-					  //view.printMessage(" " + Aqui va el metodo que retorna el comparendo que más se repite );
+					  view.printMessage(" " + modelo.darRepeticiones );
 				default: 
 					view.printMessage("--------- \n Opcion Invalida !! \n---------");
 					break;
