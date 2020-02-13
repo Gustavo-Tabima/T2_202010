@@ -13,7 +13,7 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 import model.data_structures.Cola;
 import model.data_structures.Nodo;
 
-public class testCola<K> {
+public class TestCola<K> {
 	private Cola<K> colaPrueba;
 
 	

@@ -92,7 +92,14 @@ public class Controller {
 					lector.close();
 					fin = true;
 					break;	
-
+				case 7:
+					view.printMessage("--------- \nContenido del Cluster: ");
+				  view.printMessage(" " +  modelo.agrupar() );
+				break;
+				
+				case 8:
+					view.printMessage("--------- \nReporte de ultimos N Comparendos: ");
+					  //view.printMessage(" " + Aqui va el metodo que retorna el comparendo que más se repite );
 				default: 
 					view.printMessage("--------- \n Opcion Invalida !! \n---------");
 					break;

@@ -80,11 +80,12 @@ public class Modelo {
 	/**Requerimiento para ver el cluster con elementos más seguidos
 	 * 
 	 */
-	public String agrupar() {
-		String agrupados = "";
-		datosConCola.
-		return agrupados;
-	}
+ public String agrupar() {
+String agrupados = "";
+	 
+//retorna el String con el grupo de infracciones seguidas más grande		
+return agrupados;
+ }
 	
 	/**
 	 * Requerimiento buscar dato

@@ -14,7 +14,7 @@ import model.data_structures.Pila;
 import model.logic.Comparendo;
 
 
-public class testPila<K> {
+public class TestPila<K> {
 	
 private Pila<K> pilaPrueba;
 private K X=(K) "hola";
