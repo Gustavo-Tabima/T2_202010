@@ -14,4 +14,7 @@ public interface Icola <K> {
 		
 	public K sacar();
 	
+	public K darFinal();
+
+	public void eliminar();
 }

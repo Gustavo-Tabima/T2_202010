@@ -13,5 +13,5 @@ public interface Ipila<K> {
 	public int darTamano();
 
 	public K buscarElemento(K buscado);
-
+	public K darFondo();
 }

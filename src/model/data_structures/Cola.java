@@ -7,11 +7,11 @@ public class Cola <K> implements Icola{
 	private Nodo termino;
 	private int tamano;
 
-	public Cola(int ptamano)
+	public Cola()
 	{
 		inicio=null;
 		termino=null;
-		tamano=ptamano;
+		tamano=0;
 	}
 
 
@@ -26,10 +26,13 @@ public class Cola <K> implements Icola{
 		{
 			inicio=nuevoNodo;
 			termino=nuevoNodo;
+			tamano++;
+
 		}
 		termino.setSiguiente(nuevoNodo);
-		nuevoNodo.setAnterior(termino);
 		termino=termino.darSiguente();
+		tamano++;
+
 	}
 
 	@Override
@@ -58,7 +61,17 @@ public class Cola <K> implements Icola{
 
 	@Override
 	public int darTamano() {
-		return tamano;
+		int contador=0;
+		Nodo c=inicio;
+		while(c!=null)
+		{
+			contador++;
+			c=c.darSiguente();
+		}
+		System.out.println("Numero de datos en la cola: "+contador);
+		tamano=contador;
+
+		return contador;
 	}
 
 
@@ -74,8 +87,10 @@ public class Cola <K> implements Icola{
 			while (act!=null && encontrado==false) {
 				if (act.darComparendo().equals(buscado)) {
 					encontrado=true;
+				}else {
+					act=act.darSiguente();
 				}
-				act= act.darSiguente();
+				
 			}
 			if (encontrado!=false) {
 				return (K) act.darComparendo();
@@ -95,7 +110,7 @@ public class Cola <K> implements Icola{
 
 
 	@Override
-	public K sacar() {
+	public void eliminar() {
 
 		if (estaVacio()==false) {
 			Nodo out = inicio;
@@ -103,18 +118,32 @@ public class Cola <K> implements Icola{
 			Nodo queue=inicio.darSiguente();
 			inicio=queue;
 			out.setSiguiente(null);
-			inicio.setAnterior(null);
+			tamano--;
 
-			return (K) out.darComparendo();
+
+
+			;
+
+		}else {
+			System.out.println("No se pudo eliminar,esta vacia la cola");
 
 		}
 
-		System.out.println("No se pudo eliminar");
-		return null;
 
 	}
 
 
+	public K sacar(){
+		K out = darPrimero();
+		eliminar();
+		
+		
+		return out;
+	}
+
+public K darFinal() {
+	return (K) termino.darComparendo();
+}
 
 
 

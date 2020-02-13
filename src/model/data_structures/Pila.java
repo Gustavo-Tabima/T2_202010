@@ -5,48 +5,49 @@ public class Pila <K> implements Ipila<K>{
 	private Nodo fondo;
 	private Nodo top;
 	private int tamano;
-	
-	
-	public  Pila(int ptamano) {
+
+
+	public  Pila( ) {
 		// TODO Auto-generated constructor stub
 		fondo=null;
 		top=null;
-		tamano=ptamano;
+		tamano=0;
 	}
-	
+
 	@Override
 	public void push(K pnuevo) {
 		// TODO Auto-generated method stub
 		Nodo nuevoNodo=new Nodo(pnuevo);
-		nuevoNodo.setSiguiente(null);
 		if(fondo==null & top==null)
 		{
 			fondo=nuevoNodo;
 			top=nuevoNodo;
+			tamano++;
+		}else {
+			nuevoNodo.setSiguiente(top);
+			top=nuevoNodo;
+			tamano++;
+
 		}
-		nuevoNodo.setSiguiente(top);
-		top.setAnterior(nuevoNodo);
-		top=nuevoNodo;
-		
-		
+
+
+
 	}
 
 	@Override
 	public K darTop() {
 		// TODO Auto-generated method stub
-		if (top!=null) {
-			K dato=(K) top.darComparendo();
-			return dato;
-		}else {
-			return null;
-		}
-		
-		
+
+		K dato=(K) top.darComparendo();
+		return dato;
+
+
+
 	}
 
 	@Override
 	public boolean estaVacio() {
-		
+
 		boolean pilaVacia=false;
 		if(fondo==null & top==null)
 		{
@@ -63,54 +64,69 @@ public class Pila <K> implements Ipila<K>{
 
 	@Override
 	public int darTamano() {
-		// TODO Auto-generated method stub
-		
-		
-			
-		
-		return tamano;
+		int contador=0;
+		Nodo c=top;
+		while(c!=null)
+		{
+			contador++;
+			c=c.darSiguente();
+		}
+		System.out.println("Numero de datos en la cola: "+contador);
+
+		return contador;
 	}
 
-	
+
 
 	@Override
 	public K buscarElemento(K buscado) {
-		// TODO Auto-generated method stub
+
 		if (estaVacio()!=true) {
 
 			Nodo act=top;
 			boolean encontrado=false;
-			while (act!=null && encontrado==false) {
-				if (act.darComparendo().equals(buscado)) {
+			while (act!=null && encontrado==false) 
+			{
+				if (act.darComparendo().equals(buscado)) 
+				{
 					encontrado=true;
+				}else {
+					act= act.darSiguente();
+
 				}
-				act= act.darSiguente();
 			}
-			if (encontrado!=false) {
+
+
+			if (encontrado!=false) 
+			{
 				return (K) act.darComparendo();
-			}
-			else {
+
+			}else {
 				return null;
 			}
 
-		}else {
+		}
+		else
+		{
 			return null;
 		}
 		
+
 	}
 
 	@Override
 	public K sacar() {
-		// TODO Auto-generated method stub
+
 		Nodo sacar= top;
-		top=sacar.darAnterior();
 		top.setSiguiente(null);
 		K x = (K) sacar.darComparendo();
+		tamano--;
 		return x;
-		
-		
-		
-		
+
+
 	}
 
+	public K darFondo() {
+		return (K) fondo.darComparendo();
+	}
 }

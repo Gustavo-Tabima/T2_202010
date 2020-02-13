@@ -1,10 +1,10 @@
+  
 package model.data_structures;
 
 public class Nodo <K>  {
 
 	private Nodo <K> siguiente;
 	
-	private Nodo <K> anterior;
 
 	private K datos;
 
@@ -19,19 +19,13 @@ public class Nodo <K>  {
 		return siguiente;
 	}
 	
-	public Nodo darAnterior() {
-		return siguiente;
-	}
+	
 	public void setSiguiente(Nodo psiguiente) {
 		
 		siguiente=psiguiente;
 		
 	}
-public void setAnterior(Nodo panterior) {
-		
-		anterior=panterior;
-		
-	}
+
 	
 	
 	public void setDato(K dato) 
@@ -39,4 +33,3 @@ public void setAnterior(Nodo panterior) {
 		datos = dato;
 	}
 }
-
