@@ -3,6 +3,8 @@ package model.logic;
 
 import java.util.Date;
 
+import com.sun.org.apache.regexp.internal.recompile;
+
 public class Comparendo {
 	private int objectId;
 	private Date fecha_hora;
@@ -15,7 +17,7 @@ public class Comparendo {
 
 	private double latitud;
 	private double longitud;
-	
+
 	public Comparendo(int objeId, Date fecha, String descripcion, String detencion, String claseVeh, String tipoSer, String codInfraccion, String localidadP, double lonP, double latP)
 	{
 		objectId = objeId;
@@ -29,7 +31,7 @@ public class Comparendo {
 		longitud = lonP;
 		latitud = latP;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Comparendo [OBJECTID=" + objectId + ", FECHA_HORA=" + fecha_hora + ", DES_INFRAC=" + des_infrac
@@ -37,5 +39,52 @@ public class Comparendo {
 				+ ", INFRACCION=" + infraccion + ", LOCALIDAD=" + localidad + ", latitud=" + latitud + ", longitud="
 				+ longitud + "]";
 	}
-	
+
+
+
+	public String darMedioDete() {
+		return medio_dete;
+	}
+	public String darInfraccion() {
+		return infraccion;
+	}
+
+	public String darDesInfraccion() {
+		return des_infrac;
+	}
+
+
+	public String darClaseVehi() {
+		return clase_vehi;
+
+	}
+
+	public String darTipoServi() {
+
+		return tipo_servi;
+	}
+
+	public String darLocalidad() {
+		return localidad;
+
+	}
+
+	public double  darLatitud() {
+		return latitud;
+
+	}
+
+	public double  darLongitud() {
+		return longitud;
+
+	}
+	public int darObjectId() {
+		return objectId;
+	}
+
+	public Date darFecha() {
+		return fecha_hora;
+	}
+
+
 }

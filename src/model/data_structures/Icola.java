@@ -17,4 +17,5 @@ public interface Icola <K> {
 	public K darFinal();
 
 	public void eliminar();
+	public Nodo darInicial();
 }

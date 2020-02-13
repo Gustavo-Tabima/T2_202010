@@ -1,5 +1,7 @@
 package model.data_structures;
 
+import java.util.ArrayList;
+
 public class Cola <K> implements Icola{
 
 
@@ -15,7 +17,9 @@ public class Cola <K> implements Icola{
 	}
 
 
-
+public Nodo darInicial() {
+	return inicio;
+}
 
 	@Override
 	public void instertar(Object pnuevo) {
@@ -144,6 +148,9 @@ public class Cola <K> implements Icola{
 public K darFinal() {
 	return (K) termino.darComparendo();
 }
+
+
+	
 
 
 
